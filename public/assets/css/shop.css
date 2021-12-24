@@ -1,0 +1,23 @@
+.user-btn {
+    color: white !important;
+    font-size: 18px;
+}
+
+.user-btn-grp {
+    color: white;
+    font-size: 18px;
+}
+
+.user-btn:hover {
+    color: gray;
+    text-underline: none;
+}
+
+.footer-custom {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width:100% !important;
+    background-color: #dfeaff;
+    padding: 20px;
+}
