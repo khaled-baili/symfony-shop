@@ -69,6 +69,12 @@
                 {% else %}
                     <a class="user-btn" href="/login">
                         Connexion
+                    </a> |
+                    <a class="user-btn" href="{{ path('register') }}">
+                        Register
+                    </a>
+                    <a href="{{ path('cart') }}">
+                        <img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon" alt="no icon">
                     </a>
                 {% endif %}
             </div>
