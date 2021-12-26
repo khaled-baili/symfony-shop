@@ -21,3 +21,26 @@
     background-color: #dfeaff;
     padding: 20px;
 }
+
+.product-item h5 {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
+.product-item .product_subtitle {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+.product-item .product-price {
+    font-size: 15px;
+    font-weight: bold;
+}
+.img-product {
+    height: 350px;
+    width: 350px;
+}
+.product-page-price {
+    font-size: 18px;
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre Panier{% endblock %}
+
+{% block content %}
+    <h1>Mon Panier</h1>
+<hr>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Produit</th>
+        <th></th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% set total = null %}
+    {% for item in cart %}
+    <tr>
+        <th scope="row">
+            <img src="/uploads/{{ item.product.illustration }}" height="75px" width="75px"
+                 alt="{{ item.product.name }}">
+        </th>
+        <td>
+            {{ item.product.name }} <br>
+            <small>{{ item.product.subtitle }}</small>
+        </td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ ((item.product.price ) / 100)|number_format(2,',','.') }} €</td>
+        <td>{{ ((item.product.price * item.quantity) / 100)|number_format(2,',','.') }} €</td>
+    </tr>
+        {% set total = total + (item.product.price * item.quantity) %}
+    {% endfor %}
+    </tbody>
+</table>
+    <div class="text-right">
+        <b>Nombre de produit</b> : {{ cart|length}} <br>
+        <b>Total de mon panier : {{ (total / 100)|number_format(2,',','.') }} €</b> <br>
+        <a href="" class="btn btn-success btn-block">Valider mon panier</a>
+    </div>
+{% endblock %}
