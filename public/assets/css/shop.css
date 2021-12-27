@@ -49,3 +49,8 @@
     width: 18px;
     height: 18px;
 }
+
+.block-small {
+    width: 50%;
+    margin: 0 auto;
+}
