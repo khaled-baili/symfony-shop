@@ -10,12 +10,27 @@
             <h5>Choisissez vos préfèrences avant de passer votre commande</h5>
         </div>
         <div class="col-md-6">
-            <b>- Choisissez mon adresse de livraison</b><br>
-            <b>- Choisissez mon transporteur </b><br>
+            {% set formHtml %}
+                {{ form(form) }}
+            {% endset %}
+            {{ formHtml|replace({'[br]' : '<br>'})|raw }}
         </div>
         <div class="col-md-6">
             <b>- Récap de votre commande </b><br>
-            <b>- Boutton pour payer</b> <br>
+            {% for product in cart %}
+                <div class="row">
+                    <div class="col-2">
+                        <img src="uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}" height="75px">
+                    </div>
+                    <div class="col-8 my-auto">
+                        {{ product.product.name }} <br>
+                        <small>{{ product.product.subtitle }}</small>
+                    </div>
+                    <div class="col-2 my-auto">
+                        x {{ product.quantity }}
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 

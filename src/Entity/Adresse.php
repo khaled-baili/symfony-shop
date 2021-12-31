@@ -126,6 +126,11 @@ class Adresse
         return $this->company;
     }
 
+    public function __toString(): string
+    {
+        return $this->getName().'[br]'.$this->getAdress().'[br]'.$this->getCity().'[br]'.$this->getCountry();
+    }
+
     public function setCompany(?string $company): self
     {
         $this->company = $company;

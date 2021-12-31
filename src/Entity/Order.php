@@ -102,6 +102,7 @@ class Order
         return $this->carrierPrice;
     }
 
+
     public function setCarrierPrice(float $carrierPrice): self
     {
         $this->carrierPrice = $carrierPrice;
