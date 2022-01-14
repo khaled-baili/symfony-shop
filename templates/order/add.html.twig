@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
-
+{% block javascript %}
+    <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
 {% block title %}Mes commandes{% endblock %}
 {% block content %}
     <div class="row">
@@ -51,9 +53,39 @@
             <hr>
             {% set total = total + (carriers.price*100) %}
             <b>Total: {{ (total / 100)|number_format(2,',','.') }} € </b>
-            <button type="submit" class="btn btn-success btn-block mt-4">Payer |
+            <button type="submit" class="btn btn-success btn-block mt-4" id="checkout-button">Payer |
                 <b>{{ (total / 100)|number_format(2,',','.') }} € </b></button>
         </div>
     </div>
+    {% block script %}
+        <script type="text/javascript">
+            var stripe = Stripe('pk_test_51KHaL0BZ5T7LnMPfjbYHPe9EZID97iy09mii8h3ZynExlxSOCqzb2eA57E1hvT2ZxQB2oxL4xmJfT7c7hGKlboJu00sVLX348h');
+            var checkoutButton = document.getElementById('checkout-button');
+            checkoutButton.addEventListener("click", function () {
+                fetch("/order/create-session/{{ reference }}", {
+                    method: "POST",
+                })
+                    .then(function (response){
+                        return response.json();
+                    }).then (function (session) {
+                        if(session.error == 'order') {
+                            window.location.replace('{{ path('order') }}');
+                        } else {
+                            return stripe.redirectToCheckout({sessionId: session.id});
+                        }
+
+                }).then(function (result) {
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                    .catch(function (error) {
+                        console.error("Error", error);
+                    })
+            })
+
+
+        </script>
+    {% endblock %}
 
 {% endblock %}

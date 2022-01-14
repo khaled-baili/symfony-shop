@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MyOrdersController!{% endblock %}
+
+{% block content %}
+    <h2>Mes commandes</h2>
+    <strong>Consulter vos commandes</strong> <br>
+    <a href="{{ path('my_orders') }}">Retour</a>
+    <hr>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Référence</th>
+            <th scope="col">Passé le</th>
+            <th scope="col">Produit(s)</th>
+            <th scope="col">Total</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row"><h5><span class="badge badge-secondary">Example heading</span></h5></th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td><a href="">Voir ma commande</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
