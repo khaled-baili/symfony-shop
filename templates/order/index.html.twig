@@ -11,7 +11,8 @@
         </div>
         <div class="col-md-6">
             {% set formHtml %}
-                {{ form(form) }}
+                {{ form_start(form, {action:path('order_recap')}) }}
+                {{ form_end(form) }}
             {% endset %}
             {{ formHtml|replace({'[br]' : '<br>'})|raw }}
         </div>

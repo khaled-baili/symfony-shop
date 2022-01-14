@@ -4,7 +4,6 @@ namespace App\Classes;
 
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class Cart
