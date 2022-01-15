@@ -22,6 +22,7 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/products", name="products")
+     * methode permet de traiter la valeur de recherche et retourner les produits
      */
     public function index(Request $request): Response
     {
@@ -40,6 +41,7 @@ class ProductController extends AbstractController
 
     /**
      * @Route ("product/{slug}", name="product")
+     * methode permet de retourner les valeurs d'un produit specifique
      */
     public function show($slug)
     {

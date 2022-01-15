@@ -16,6 +16,7 @@ class CartController extends AbstractController
     }
     /**
      * @Route("/cart", name="cart")
+     * methode permet de retourner la vue complete de la panier --> produit -->qte
      */
     public function index(Cart $cart)
     {
@@ -26,6 +27,7 @@ class CartController extends AbstractController
 
     /**
      * @Route("/cart/add/{id}", name="add_to_cart")
+     * methode permet l'ajout d'un produit dans le panier
      */
     public function add(Cart $cart, $id)
     {
@@ -34,6 +36,7 @@ class CartController extends AbstractController
     }
     /**
      * @Route("/cart/reomove", name="remove_my_cart")
+     * methode permet de supprimer un tout le panier
      */
     public function remove(Cart $cart)
     {
@@ -43,6 +46,7 @@ class CartController extends AbstractController
 
     /**
      * @Route("/cart/delete/{id}", name="delete_product_cart")
+     * methode permet de suprimer un element specifique de panier selon l'id
      */
     public function delete(Cart $cart, $id)
     {
@@ -52,6 +56,7 @@ class CartController extends AbstractController
 
     /**
      * @Route("/cart/addqte/{id}", name="add_qte_to_cart")
+     * methode permet d'incrementer la valeur de la quantité de la panier
      */
     public function addQte(Cart $cart, $id)
     {
@@ -61,6 +66,7 @@ class CartController extends AbstractController
 
     /**
      * @Route("/cart/decqte/{id}", name="dec_qte_to_cart")
+     * methode permet de decrementer la valeur de la quantiyé de panier
      */
     public function decQte(Cart $cart, $id)
     {

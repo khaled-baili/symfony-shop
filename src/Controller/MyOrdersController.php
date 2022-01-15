@@ -19,6 +19,7 @@ class MyOrdersController extends AbstractController
 
     /**
      * @Route("/order/my-orders", name="my_orders")
+     * methode permet de retourner les commandes avec leurs statut et d'autres informations comme la date...
      */
     public function index(): Response
     {
@@ -31,6 +32,7 @@ class MyOrdersController extends AbstractController
 
     /**
      * @Route("/order/my-orders/{reference}", name="my_order_details")
+     * methode permet de retourner les produits et les information nécessaire pour une commande
      */
     public function showDetails($reference)
     {

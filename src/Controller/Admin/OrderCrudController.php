@@ -35,19 +35,19 @@ class OrderCrudController extends AbstractCrudController
     }
     public function configureActions(Actions $actions) : Actions {
         $updatePreparation = Action::new('updatePreparation','Préparation en cours')
-            ->linkToCrudAction('updatePreparation');
+            ->linkToCrudAction('updatePreparation');//ajout du boutton Préparation en cours
         $updateShipping = Action::new('updateShipping','En cours de livraison')
-            ->linkToCrudAction('updateShipping');
+            ->linkToCrudAction('updateShipping');//ajout du boutton En cours de livraison
         return $actions
-            ->add('detail',$updatePreparation)
-            ->add('detail',$updateShipping)
+            ->add('detail',$updatePreparation)//defini l'action a executer
+            ->add('detail',$updateShipping)//defini l'action a executer
             ->add('index', 'detail');
     }
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setDefaultSort(['id'=>'DESC']);
+        return $crud->setDefaultSort(['id'=>'DESC']);//permet de trier els donnes selon l id de facon descendante dans la page du commande
     }
-
+    /*methode permet de traiter le changement du statut du commande -- preparation en cours*/
     public function updatePreparation(AdminContext $context) {
         $order = $context->getEntity()->getInstance();
         $order->setState(2);
@@ -61,7 +61,7 @@ class OrderCrudController extends AbstractCrudController
 
         return $this->redirect($url);
     }
-
+    /*methode permet de traiter le changement du statut du commande -- livraison en cours*/
     public function updateShipping(AdminContext $context) {
         $order = $context->getEntity()->getInstance();
         $order->setState(3);

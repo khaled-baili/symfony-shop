@@ -15,7 +15,7 @@ class CarrierCrudController extends AbstractCrudController
         return Carrier::class;
     }
 
-
+    /*Permet de specifier les champs du formulaire pour la gestion de transporteur*/
     public function configureFields(string $pageName): iterable
     {
         return [

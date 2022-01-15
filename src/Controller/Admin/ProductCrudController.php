@@ -30,7 +30,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false)
-                ->setFormTypeOptions(['data_class'=>null]),
+                ->setFormTypeOptions(['data_class'=>null]),//ajout de l'image
 
             TextField::new('subtitle'),
             TextareaField::new('description'),

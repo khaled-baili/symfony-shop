@@ -30,6 +30,7 @@ class AccountAddressController extends AbstractController
     }
     /**
      * @Route("/account/add-address", name="add_address")
+     * fonction qui permet d'ajouter une adresse de livraison a l'utilisateur
      */
     public function addAddress(Cart $cart,Request $request)
     {
@@ -55,6 +56,7 @@ class AccountAddressController extends AbstractController
 
     /**
      * @Route("/account/modify-address/{id}", name="modify_address")
+     * methode permet de modifier adresse livraison utilisateur
      */
     public function modifyAddress(Request $request, $id)
     {
@@ -77,6 +79,7 @@ class AccountAddressController extends AbstractController
 
     /**
      * @Route("/account/remove-address/{id}", name="remove_address")
+     * methodepermet de supprimer une adresse de livraison selon l'id de l'adresse
      */
     public function removeAddress(Request $request, $id)
     {

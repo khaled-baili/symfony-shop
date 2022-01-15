@@ -25,6 +25,7 @@ class ProductRepository extends ServiceEntityRepository
      * @param Search $search
      * @return Product[]
      */
+    /*permet de retourner les produits selon la valeur de recherche*/
     public function findWithSearch(Search $search) {
         $query = $this
             ->createQueryBuilder('p')

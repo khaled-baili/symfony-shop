@@ -10,6 +10,7 @@ class AccountController extends AbstractController
 {
     /**
      * @Route("/my_account", name="account")
+     * retourner vers la paghe home du site
      */
     public function index(): Response
     {

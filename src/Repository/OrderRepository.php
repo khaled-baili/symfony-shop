@@ -23,7 +23,7 @@ class OrderRepository extends ServiceEntityRepository
     /**
     * @return Order[] Returns an array of Order objects
     */
-
+    /*retourner les commande qui sont payées*/
     public function findSuccessOrders($user)
     {
         return $this->createQueryBuilder('o')

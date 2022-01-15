@@ -18,6 +18,7 @@ class OrderCancelController extends AbstractController
 
     /**
      * @Route("/order/cancel/{stripeSessionId}", name="order_cancel")
+     * methode a executer qui rend les informations a la vue de l'echec de paiement du commande
      */
     public function index($stripeSessionId): Response
     {

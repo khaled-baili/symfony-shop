@@ -4,7 +4,7 @@ namespace App\Classes;
 use Mailjet\Client;
 use Mailjet\Resources;
 use phpDocumentor\Reflection\Types\This;
-
+/*Classe qui permet d'utiliser définir la structure et la parametre a donner pour envoyer les emails a travers maljet*/
 class Mail {
     private $api_key='f36e442796cf90059ff77886f31d0b96';
     private $api_key_secret='ee21bcdb0c0ae42471cd9fea16cf8fd9';

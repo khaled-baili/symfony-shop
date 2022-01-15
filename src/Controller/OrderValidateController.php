@@ -21,6 +21,7 @@ class OrderValidateController extends AbstractController
 
     /**
      * @Route("/order/success/{reference}", name="order_validate")
+     * methode permet de donner les information necessaires et de retourner la vue du page paiement apprové
      */
     public function index($reference, Cart $cart): Response
     {

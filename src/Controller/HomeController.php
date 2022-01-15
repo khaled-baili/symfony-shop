@@ -21,6 +21,8 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/", name="home")
+     * methode permet de retourner les produits selectionner isbest par l'admin
+     * retourner les donnees a utiliser dans le header dans la pâge home
      */
     public function index(): Response
     {

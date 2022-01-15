@@ -17,6 +17,7 @@ class StripeController extends AbstractController
 {
     /**
      * @Route("/order/create-session/{reference}", name="stripe_create_session")
+     * methode permet de traiter le pâiement via stripe
      */
     public function index(EntityManagerInterface $entityManager, $reference): Response
     {

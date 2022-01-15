@@ -25,6 +25,7 @@ class OrderController extends AbstractController
 
     /**
      * @Route("/order", name="order")
+     * permet la formulaire de l'addition du' une commande
      */
     public function index(Cart $cart, Request $request): Response
     {
@@ -43,6 +44,7 @@ class OrderController extends AbstractController
 
     /**
      * @Route("/order/order-recap", name="order_recap",methods={"POST"} )
+     * methode permet de traiter la commande et de retourner les information necessaire du recapitulatif du commande
      */
     public function addOrder(Cart $cart, Request $request): Response
     {

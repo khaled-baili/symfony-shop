@@ -13,7 +13,7 @@ class HeaderCrudController extends AbstractCrudController
     {
         return Header::class;
     }
-
+    /*Configurer les champs de la gestion du header -- slide du page home*/
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -26,7 +26,7 @@ class HeaderCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false)
-                ->setFormTypeOptions(['data_class'=>null]),
+                ->setFormTypeOptions(['data_class'=>null]),//ajout de l'image
         ];
     }
 
