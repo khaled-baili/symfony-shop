@@ -6,6 +6,7 @@ use App\Classes\Cart;
 use App\Classes\Mail;
 use App\Entity\Order;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\DocBlock\Tags\Reference\Reference;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,11 +20,11 @@ class OrderValidateController extends AbstractController
     }
 
     /**
-     * @Route("/order/success/{stripeSessionId}", name="order_validate")
+     * @Route("/order/success/{reference}", name="order_validate")
      */
-    public function index($stripeSessionId, Cart $cart): Response
+    public function index($reference, Cart $cart): Response
     {
-        $order = $this->entityManager->getRepository(Order::class)->findOneByStripeSessionId($stripeSessionId);
+        $order = $this->entityManager->getRepository(Order::class)->findOneByReference($reference);
         if (!$order || $order->getUser() !=$this->getUser()) {
             return $this->redirectToRoute('home');
         }
