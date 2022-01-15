@@ -1,12 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MyOrdersController!{% endblock %}
+{% block title %}Mes Commandes{% endblock %}
 
 {% block content %}
     <h2>Mes commandes</h2>
     <strong>Consulter vos commandes</strong> <br>
     <a href="{{ path('my_orders') }}">Retour</a>
     <hr>
+    {% if orders|length ==0 %}
+        <p class="text-center">
+            Vous n'avez pas encore passé de commande
+        </p>
+    {% else %}
     <table class="table">
         <thead>
         <tr>
@@ -18,14 +23,18 @@
         </tr>
         </thead>
         <tbody>
+        {% for order in orders %}
         <tr>
-            <th scope="row"><h5><span class="badge badge-secondary">Example heading</span></h5></th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td><a href="">Voir ma commande</a></td>
+            <th scope="row"><span class="badge badge-secondary"> {{ order.reference }}</span></th>
+            <td>{{ order.createdAt|date('d/m/Y') }}</td>
+            <td>{{ order.orderDetails|length }}</td>
+            <td>{{ ((order.carrierPrice*100 + order.getTotal) / 100)| number_format(2,',','.') }}</td>
+            <td class="text-right"><a href="{{ path('my_order_details',{'reference': order.reference}) }}">
+                    Voir ma commande</a></td>
 
         </tr>
+        {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 {% endblock %}

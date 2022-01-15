@@ -73,6 +73,7 @@ class OrderController extends AbstractController
             $order->setCarrierPrice($carriers->getPrice());
             $order->setDelivrey($delivery_content);
             $order->setIsPaid(0);
+            $order->setState(0);
             $this->entityManager->persist($order);
 
             foreach ($cart->getFull() as $product) {
